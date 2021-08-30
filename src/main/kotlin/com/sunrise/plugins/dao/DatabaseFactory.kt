@@ -20,27 +20,12 @@ object DatabaseFactory {
 
     fun insert(userData: UserData) = transaction(db) {
         Users.insert {
-                it[agent_ring_time] = userData.agent_ring_time
-                it[answer_stamp] = userData.answer_stamp
-                it[answered_agent] = userData.answered_agent
-                it[billing_circle] = userData.billing_circle
-                it[billsec] = userData.billsec
-                it[broadcast_lead_fields] = userData.broadcast_lead_fields
-                it[call_flow] = userData.call_flow
-                it[call_id] = userData.call_id
-                it[call_status] = userData.call_status
-                it[call_to_number] = userData.call_to_number
-                it[caller_id_number] = userData.caller_id_number
-                it[digits_dialed] = userData.digits_dialed
-                it[direction] = userData.direction
-                it[duration] = userData.duration
-                it[end_stamp] = userData.end_stamp
-                it[hangup_cause] = userData.hangup_cause
-                it[missed_agent] = userData.missed_agent
-                it[outbound_sec] = userData.outbound_sec
-                it[recording_url] = userData.recording_url
-                it[start_stamp] = userData.start_stamp
-                it[uuid] = userData.uuid
+                it[call_status] = userData.call_status ?: ""
+                it[call_to_number] = userData.call_to_number ?: ""
+                it[caller_id_number] = userData.caller_id_number ?: ""
+                it[digits_dialed] = userData.digits_dialed ?: ""
+                it[duration] = userData.duration ?: ""
+                it[uuid] = userData.uuid ?: ""
         }
     }
 
