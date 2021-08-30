@@ -12,7 +12,7 @@ object Users : Table() {
     val duration = varchar("duration", 255)
     val uuid = varchar("uuid", 255)
 
-    override val primaryKey = PrimaryKey(call_to_number)
+    override val primaryKey = PrimaryKey(caller_id_number)
 }
 
 @Serializable
